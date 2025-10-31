@@ -18,6 +18,7 @@ profilePhotoInput.addEventListener("change", (e) => {
 
 // Miss Umra Code End----
 
+
 // My Code
 signUpForm.onsubmit = function (e) {
   e.preventDefault();

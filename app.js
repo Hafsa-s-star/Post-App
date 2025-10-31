@@ -1,29 +1,33 @@
+// Profile Picture code Of Miss Umra
 var firstName, lastName;
-const profilePhotoImg = document.getElementById("profilePhotoImg");
-const profilePhotoInput = document.getElementById("profilePhotoInput");
+var profilePhotoImg = document.getElementById("profilePhotoImg");
+var profilePhotoInput = document.getElementById("profilePhotoInput");
 
 profilePhotoImg.addEventListener("click", () => {
   profilePhotoInput.click();
 });
 
 profilePhotoInput.addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  const reader = new FileReader();
+  var file = e.target.files[0];
+  var reader = new FileReader();
   reader.onload = () => {
     profilePhotoImg.src = reader.result;
   };
   reader.readAsDataURL(file);
 });
-signUpForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+
+// Miss Umra Code End----
+
+// My Code
+signUpForm.onsubmit = function (e) {
+  e.preventDefault();
+
   firstName = document.getElementById("inputFirstName").value;
   lastName = document.getElementById("inputLastName").value;
   console.log(firstName, lastName);
 
-  const signUpFormContainer = document.getElementById("signUpFormContainer");
-  var postApp = document.getElementById("postApp");
-
   signUpForm.reset();
+
   Swal.fire({
     position: "top-end",
     icon: "success",
@@ -31,30 +35,31 @@ signUpForm.addEventListener("submit", (event) => {
     showConfirmButton: false,
     timer: 1500,
   });
+
   signUpFormContainer.classList.add("hidden");
   postApp.classList.remove("hidden");
-});
+};
 
 function deletePost(button) {
   button.parentNode.parentNode.remove();
 }
-let editCard = null; // stores the card currently being edited
+
+let editCard = null;
 
 function editpost(button) {
-  editCard = button.closest(".card"); // get the whole post card
-  const title = editCard.querySelector("h5").textContent;
-  const description = editCard.querySelector("p").textContent;
+  editCard = button.closest(".card");
+  var title = editCard.getElementsByTagName("h5")[0].innerText;
+  var description = editCard.getElementsByTagName("p")[0].innerText;
 
-  // Fill input fields for editing
   document.getElementById("title").value = title;
   document.getElementById("description").value = description;
 
-  // Scroll to top (optional)
+
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function getRandomGradient() {
-  const gradients = [
+  var gradients = [
     "linear-gradient(135deg, #A734BD, #FF006A)",
     "linear-gradient(135deg, #0072ff, #00c6ff)",
     "linear-gradient(135deg, #ff9966, #ff5e62)",
@@ -72,7 +77,7 @@ function post() {
 
   if (title.value.trim() && description.value.trim()) {
     var post = document.getElementById("post");
-    const gradient = getRandomGradient();
+    var gradient = getRandomGradient();
 
     post.innerHTML += `
       <div class="card p-3 mb-3 post-card" style="background: ${gradient}">

@@ -45,7 +45,7 @@ function deletePost(button) {
   button.parentNode.parentNode.remove();
 }
 
-let editCard = null;
+ var editCard = null;
 
 function editpost(button) {
   editCard = button.closest(".card");

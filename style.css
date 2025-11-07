@@ -1,89 +1,128 @@
-#signUpFormContainer{
-    margin: 0 auto !important;
-    margin-top: 50px !important;
+#signUpFormContainer {
+  margin: 0 auto !important;
+  margin-top: 50px !important;
 }
-.text{
-    color: #11414d !important;
+
+.text {
+  color: #11414d !important;
 }
-.bg-color{
-    background-color: black !important;
+
+.bg-color {
+  background-color: black !important;
 }
-.hidden{
-    display: none;
+
+.hidden {
+  display: none;
 }
+
 @font-face {
-    font-family:"RobotoSlab" ;
-    src: url(./fonts/RobotoSlab-VariableFont_wght.ttf);
+  font-family: "RobotoSlab";
+  src: url(./fonts/RobotoSlab-VariableFont_wght.ttf);
 }
-*{
-    font-family: RobotoSlab;
+
+* {
+  font-family: RobotoSlab;
 }
-.logo{
-    width: 85px;
-    height: 85px;
+
+.logo {
+  width: 85px;
+  height: 85px;
 }
-.navbar{
-    background-color: #F8E9D4 !important;
+
+.navbar {
+  background: linear-gradient(135deg, #b37ba4 0%, #e8d9a9 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #4a4a4a;
 }
-.navbar-brand{
-    color: #ffff;
+
+.navbar-brand {
+  color: #ffff;
 }
-.navbar-brand:hover{
-    color: #ffff;
+
+.navbar-brand:hover {
+  color: #ffff;
 }
+
 .profile-photo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer; 
-  }
-  
-  .profile-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-.postBtn,.editBtn{
-    background-color: #F8E9D4;
-    color: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
 }
-.postBtn:hover, .editBtn:hover{
-    background-color: #ffff;
-    color: #11414d;
-    border: 2px solid #F8E9D4;
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
-.deleteBtn:hover{
-    background-color: #ffff;
-    color: #dc3545;
-    border: 2px solid #dc3545;
+
+.postBtn,
+.editBtn {
+  background: linear-gradient(135deg, #b37ba4 0%, #e8d9a9 100%);
+  color: #2e2e2e;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(179, 123, 164, 0.3);
+}
+
+/* Hover effect */
+.postBtn:hover,
+.editBtn:hover {
+  background: linear-gradient(135deg, #a46b94 0%, #d7c999 100%);
+  box-shadow: 0 6px 14px rgba(179, 123, 164, 0.5);
+  transform: translateY(-2px);
+}
+
+.postBtn:hover,
+.editBtn:hover {
+  background-color: #ffff;
+  color: #11414d;
+  border: 2px solid #F8E9D4;
+}
+
+.deleteBtn:hover {
+  background-color: #ffff;
+  color: #dc3545;
+  border: 2px solid #dc3545;
 
 }
-.swal2-confirm{
-    background-color: #F8E9D4;
+
+.swal2-confirm {
+  background-color: #F8E9D4;
 }
-.images{
-    justify-content: space-around;
+
+.images {
+  justify-content: space-around;
 }
-.bg-img{
-    height: 50px;
-    width: 50px;
-    border-radius: 5px;
+
+.bg-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
 }
-.selectedImg{
-    border: 2px solid #F8E9D4;
+
+.selectedImg {
+  border: 2px solid #F8E9D4;
 }
- 
-.name-time{
-    font-style: normal;
-    font-weight: bold;
-  }
-  
+
+.name-time {
+  font-style: normal;
+  font-weight: bold;
+}
+
 .time {
-    font-size: 12px;  
-    color: #666; 
-  }
+  font-size: 12px;
+  color: #666;
+}
 
 #post {
   display: grid;
@@ -95,13 +134,13 @@
 .post-card {
   border-radius: 16px;
   color: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .post-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .profile-photo {
@@ -112,7 +151,7 @@
 }
 
 .editBtn {
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   color: #333;
 }
 

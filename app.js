@@ -1,4 +1,5 @@
-// Profile Picture code Of Miss Umra
+ // ----------------- PROFILE PICTURE (Original Code) -----------------
+
 var firstName, lastName;
 var profilePhotoImg = document.getElementById("profilePhotoImg");
 var profilePhotoInput = document.getElementById("profilePhotoInput");
@@ -12,20 +13,24 @@ profilePhotoInput.addEventListener("change", (e) => {
   var reader = new FileReader();
   reader.onload = () => {
     profilePhotoImg.src = reader.result;
+
+    // ---- SAVE PROFILE PICTURE ----
+    localStorage.setItem("profilePhoto", reader.result);
   };
   reader.readAsDataURL(file);
 });
 
-// Miss Umra Code End----
+// ----------------- SIGNUP FORM -----------------
 
-
-// My Code
 signUpForm.onsubmit = function (e) {
   e.preventDefault();
 
   firstName = document.getElementById("inputFirstName").value;
   lastName = document.getElementById("inputLastName").value;
-  console.log(firstName, lastName);
+
+  // ---- SAVE USER DATA ----
+  localStorage.setItem("firstName", firstName);
+  localStorage.setItem("lastName", lastName);
 
   signUpForm.reset();
 
@@ -41,11 +46,16 @@ signUpForm.onsubmit = function (e) {
   postApp.classList.remove("hidden");
 };
 
+// ----------------- DELETE POST -----------------
+
 function deletePost(button) {
   button.parentNode.parentNode.remove();
+  savePosts(); // UPDATE STORAGE
 }
 
- var editCard = null;
+var editCard = null;
+
+// ----------------- EDIT POST -----------------
 
 function editpost(button) {
   editCard = button.closest(".card");
@@ -54,7 +64,6 @@ function editpost(button) {
 
   document.getElementById("title").value = title;
   document.getElementById("description").value = description;
-
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -66,10 +75,12 @@ function getRandomGradient() {
     "linear-gradient(135deg, #ff9966, #ff5e62)",
     "linear-gradient(135deg, #7F00FF, #E100FF)",
     "linear-gradient(135deg, #11998e, #38ef7d)",
-    "linear-gradient(135deg, #f7971e, #ffd200)"
+    "linear-gradient(135deg, #f7971e, #ffd200)",
   ];
   return gradients[Math.floor(Math.random() * gradients.length)];
 }
+
+// ----------------- CREATE POST -----------------
 
 function post() {
   var title = document.getElementById("title");
@@ -101,6 +112,9 @@ function post() {
 
     title.value = "";
     description.value = "";
+
+    // ---- SAVE POSTS ----
+    savePosts();
   } else {
     Swal.fire({
       title: "Empty Post",
@@ -109,3 +123,40 @@ function post() {
     });
   }
 }
+
+// ----------------- SAVE POSTS TO STORAGE -----------------
+
+function savePosts() {
+  localStorage.setItem("posts", document.getElementById("post").innerHTML);
+}
+
+// ----------------- LOAD POSTS FROM STORAGE -----------------
+
+function loadPosts() {
+  if (localStorage.getItem("posts")) {
+    document.getElementById("post").innerHTML = localStorage.getItem("posts");
+  }
+}
+
+// ----------------- LOAD USER DATA -----------------
+
+function loadUserData() {
+  if (localStorage.getItem("firstName")) {
+    firstName = localStorage.getItem("firstName");
+    lastName = localStorage.getItem("lastName");
+
+    signUpFormContainer.classList.add("hidden");
+    postApp.classList.remove("hidden");
+  }
+
+  if (localStorage.getItem("profilePhoto")) {
+    profilePhotoImg.src = localStorage.getItem("profilePhoto");
+  }
+}
+
+// ----------------- WHEN PAGE LOADS -----------------
+
+window.onload = function () {
+  loadUserData();
+  loadPosts();
+};
